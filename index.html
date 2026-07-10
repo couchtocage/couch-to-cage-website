@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Couch To Cage connects amateur MMA, Muay Thai, and kickboxing fighters with competition opportunities." />
+  <meta name="theme-color" content="#03050a" />
+  <title>Couch To Cage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Couch To Cage home">
+      <img src="assets/ctc-logo-exact.png" alt="CTC Couch To Cage" />
+    </a>
+
+    <button class="menu-button" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#about">About</a>
+      <a href="#process">How It Works</a>
+      <a href="#disciplines">Disciplines</a>
+      <a href="#join">Join the Roster</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">AMATEUR FIGHT OPPORTUNITIES</p>
+        <h1>TURN YOUR PASSION<br><span>INTO A CAREER</span></h1>
+        <p class="hero-text">
+          Join the Couch To Cage roster and get connected with amateur MMA,
+          Muay Thai, and kickboxing opportunities.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-gold" href="#join">Join the Roster</a>
+          <a class="button button-ghost" href="#process">How It Works</a>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <img src="assets/registration-banner.jpeg" alt="Couch To Cage fighter walking from the couch toward the cage" />
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="section-heading">
+        <p class="eyebrow">WHO WE ARE</p>
+        <h2>FROM THE COUCH<br>TO THE CAGE</h2>
+      </div>
+      <div class="about-card">
+        <p>
+          Couch To Cage is not a gym. We connect amateur fighters with real
+          competition opportunities based on their experience, weight class,
+          location, and discipline.
+        </p>
+        <p>
+          We are building a dependable roster for MMA, Muay Thai, and
+          kickboxing fighters who are ready to compete.
+        </p>
+      </div>
+    </section>
+
+    <section class="section process" id="process">
+      <div class="section-heading centered">
+        <p class="eyebrow">THE PROCESS</p>
+        <h2>HOW IT WORKS</h2>
+      </div>
+
+      <div class="steps">
+        <article class="step">
+          <span class="step-number">01</span>
+          <h3>Build Your Profile</h3>
+          <p>Submit your contact information, city, state, weight class, discipline, record, and experience.</p>
+        </article>
+        <article class="step">
+          <span class="step-number">02</span>
+          <h3>Join the Roster</h3>
+          <p>Your information is reviewed and organized so it can be matched with suitable opportunities.</p>
+        </article>
+        <article class="step">
+          <span class="step-number">03</span>
+          <h3>Get Contacted</h3>
+          <p>When an opportunity fits your profile, you are contacted with the matchup details and next steps.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section disciplines" id="disciplines">
+      <div class="section-heading centered">
+        <p class="eyebrow">WHO CAN APPLY</p>
+        <h2>CHOOSE YOUR DISCIPLINE</h2>
+      </div>
+
+      <div class="discipline-grid">
+        <article class="discipline-card">
+          <span>MMA</span>
+        </article>
+        <article class="discipline-card">
+          <span>MUAY THAI</span>
+        </article>
+        <article class="discipline-card">
+          <span>KICKBOXING</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section join" id="join">
+      <div class="join-intro">
+        <p class="eyebrow">READY TO COMPETE?</p>
+        <h2>JOIN THE ROSTER</h2>
+        <p>
+          Complete the official Couch To Cage fighter registration form.
+          Your information helps us identify opportunities that fit your
+          location, discipline, weight, experience, and availability.
+        </p>
+      </div>
+
+      <div class="registration-panel">
+        <div class="registration-visual">
+          <img src="assets/ctc-original-artwork.png" alt="Couch To Cage fighter walking toward the cage" />
+        </div>
+
+        <form
+          class="ctc-form"
+          name="ctc-fighter-registration"
+          method="POST"
+          action="/thank-you.html"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          enctype="multipart/form-data"
+        >
+          <input type="hidden" name="form-name" value="ctc-fighter-registration" />
+          <p class="hidden-field">
+            <label>Do not fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <div class="form-heading">
+            <img src="assets/ctc-logo-exact.png" alt="CTC Couch To Cage" />
+            <div>
+              <h3>Amateur Fighter Registration</h3>
+              <p>Submit your details to join the Couch To Cage fighter roster.</p>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h4>Personal Information</h4>
+
+            <div class="field-grid two">
+              <label>
+                <span>First Name <b>*</b></span>
+                <input type="text" name="first-name" autocomplete="given-name" required />
+              </label>
+              <label>
+                <span>Last Name <b>*</b></span>
+                <input type="text" name="last-name" autocomplete="family-name" required />
+              </label>
+            </div>
+
+            <div class="field-grid two">
+              <label>
+                <span>Date of Birth <b>*</b></span>
+                <input type="date" name="date-of-birth" required />
+              </label>
+            </div>
+
+            <div class="field-grid two">
+              <label>
+                <span>Phone Number <b>*</b></span>
+                <input type="tel" name="phone" autocomplete="tel" placeholder="(000) 000-0000" required />
+              </label>
+              <label>
+                <span>Email Address <b>*</b></span>
+                <input type="email" name="email" autocomplete="email" placeholder="name@example.com" required />
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h4>Location</h4>
+
+            <div class="field-grid three">
+              <label>
+                <span>City <b>*</b></span>
+                <input type="text" name="city" autocomplete="address-level2" required />
+              </label>
+              <label>
+                <span>State <b>*</b></span>
+                <input type="text" name="state" autocomplete="address-level1" required />
+              </label>
+              <label>
+                <span>Miles From Nearest Major Airport <b>*</b></span>
+                <input type="text" name="airport-miles" inputmode="numeric" required />
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h4>Fighter Profile</h4>
+
+            <div class="field-grid three">
+              <label>
+                <span>Height <b>*</b></span>
+                <input type="text" name="height" placeholder="6'2&quot;" required />
+              </label>
+              <label>
+                <span>Walk-Around Weight <b>*</b></span>
+                <input type="number" name="walk-around-weight" min="80" max="500" placeholder="185" required />
+              </label>
+              <label>
+                <span>Preferred Weight Class <b>*</b></span>
+                <input type="text" name="weight-class" placeholder="170 lb" required />
+              </label>
+            </div>
+
+            <fieldset>
+              <legend>Discipline <b>*</b></legend>
+              <div class="choice-row">
+                <label class="choice"><input type="checkbox" name="discipline" value="MMA" /> <span>MMA</span></label>
+                <label class="choice"><input type="checkbox" name="discipline" value="Muay Thai" /> <span>Muay Thai</span></label>
+                <label class="choice"><input type="checkbox" name="discipline" value="Kickboxing" /> <span>Kickboxing</span></label>
+              </div>
+            </fieldset>
+
+            <div class="field-grid three">
+              <label>
+                <span>Amateur Record</span>
+                <input type="text" name="amateur-record" placeholder="0-0" />
+              </label>
+              <label>
+                <span>Years of Experience</span>
+                <input type="number" name="years-experience" min="0" max="50" step="0.5" />
+              </label>
+              <label>
+                <span>Availability to Fight</span>
+                <select name="availability">
+                  <option value="">Select one</option>
+                  <option>Immediately</option>
+                  <option>Within 2 weeks</option>
+                  <option>Within 30 days</option>
+                  <option>Within 60 days</option>
+                  <option>Not currently available</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              <span>Fighting Experience or Background</span>
+              <textarea name="fighting-background" rows="5" placeholder="Tell us about your training, bouts, smoker fights, tournaments, or other relevant experience."></textarea>
+            </label>
+          </div>
+
+          <div class="form-section">
+            <h4>Travel & Media</h4>
+
+            <div class="field-grid two">
+              
+              <label>
+                <span>Highlight Video Link <em>(Optional)</em></span>
+                <input type="url" name="highlight-link" placeholder="https://..." />
+              </label>
+            </div>
+
+            <div class="field-grid two">
+              <label class="file-field">
+                <span>Upload Headshot</span>
+                <input type="file" name="headshot" accept="image/*" />
+              </label>
+              <label class="file-field">
+                <span>Upload Fight Photo <em>(Optional)</em></span>
+                <input type="file" name="fight-photo" accept="image/*" />
+              </label>
+            </div>
+          </div>
+
+          <label class="consent">
+            <input type="checkbox" name="consent" required />
+            <span>I confirm that the information provided is accurate and understand that submitting this form does not guarantee a fight opportunity.</span>
+          </label>
+
+          <button class="submit-button" type="submit"><span class="submit-label">Submit Fighter Registration</span><span class="submit-spinner" aria-hidden="true"></span></button>
+          <p class="privacy-note">Your information is submitted securely through this Couch To Cage website.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div>
+        <p class="eyebrow">CONNECT WITH US</p>
+        <h2>STAY READY.<br>STAY ACTIVE.</h2>
+      </div>
+      <a class="instagram-card" href="mailto:Officialcouchtocage@gmail.com">
+        <span>Questions? Contact Us</span>
+        <strong>Officialcouchtocage@gmail.com</strong>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <img src="assets/ctc-logo-exact.png" alt="CTC Couch To Cage" />
+    <p>© <span id="year"></span> Couch To Cage. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

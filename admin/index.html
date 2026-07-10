@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#03050a">
+  <title>CTC Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <main>
+    <section id="loginView" class="auth-shell">
+      <div class="auth-card">
+        <img class="admin-logo" src="../ctc-logo-exact.png" alt="Couch To Cage">
+        <p class="eyebrow">PRIVATE ADMIN PORTAL</p>
+        <h1>CTC ADMIN</h1>
+        <p class="muted">Sign in to manage upcoming events and recent fight clips.</p>
+
+        <form id="loginForm">
+          <label>
+            <span>Email</span>
+            <input id="email" type="email" autocomplete="email" required>
+          </label>
+          <label>
+            <span>Password</span>
+            <input id="password" type="password" autocomplete="current-password" required>
+          </label>
+          <button type="submit">Sign In</button>
+          <p id="loginMessage" class="message"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="dashboardView" class="dashboard hidden">
+      <header class="admin-header">
+        <img src="../ctc-logo-exact.png" alt="Couch To Cage">
+        <div>
+          <strong>Admin Dashboard</strong>
+          <span id="adminEmail"></span>
+        </div>
+        <button id="signOutButton" class="ghost-button">Sign Out</button>
+      </header>
+
+      <div class="dashboard-grid">
+        <aside class="sidebar">
+          <button class="nav-button active" data-view="overview">Dashboard</button>
+          <button class="nav-button" data-view="events">Upcoming Events</button>
+          <button class="nav-button" data-view="clips">Fight Clips</button>
+        </aside>
+
+        <div class="content">
+          <section id="overviewPanel" class="panel">
+            <p class="eyebrow">OVERVIEW</p>
+            <h2>Welcome Back</h2>
+            <div class="stats">
+              <article><strong id="eventCount">0</strong><span>Upcoming events</span></article>
+              <article><strong id="clipCount">0</strong><span>Fight clips</span></article>
+            </div>
+            <p class="muted">Version 1 manages events and fight clips. Fighter applications will remain in Netlify Forms until we connect them in the next phase.</p>
+          </section>
+
+          <section id="eventsPanel" class="panel hidden">
+            <div class="panel-title">
+              <div>
+                <p class="eyebrow">WEBSITE CONTENT</p>
+                <h2>Upcoming Events</h2>
+              </div>
+              <button id="newEventButton">+ Add Event</button>
+            </div>
+
+            <form id="eventForm" class="editor hidden">
+              <input id="eventId" type="hidden">
+              <div class="two-col">
+                <label><span>Event Name</span><input id="eventName" required></label>
+                <label><span>Promotion</span><input id="eventPromotion"></label>
+              </div>
+              <div class="two-col">
+                <label><span>Date & Time</span><input id="eventDate" type="datetime-local" required></label>
+                <label><span>Discipline</span>
+                  <select id="eventDiscipline" required>
+                    <option value="">Select</option>
+                    <option>MMA</option>
+                    <option>Muay Thai</option>
+                    <option>Kickboxing</option>
+                    <option>Multiple</option>
+                  </select>
+                </label>
+              </div>
+              <div class="two-col">
+                <label><span>Venue</span><input id="eventVenue"></label>
+                <label><span>City & State</span><input id="eventLocation" required></label>
+              </div>
+              <label><span>Flyer Image URL</span><input id="eventImage" type="url" placeholder="https://..."></label>
+              <label><span>Ticket Link</span><input id="eventTicket" type="url" placeholder="https://..."></label>
+              <label><span>Description</span><textarea id="eventDescription" rows="4"></textarea></label>
+              <label class="check"><input id="eventPublished" type="checkbox" checked><span>Published on website</span></label>
+              <div class="form-actions">
+                <button type="submit">Save Event</button>
+                <button id="cancelEventButton" type="button" class="ghost-button">Cancel</button>
+              </div>
+              <p id="eventMessage" class="message"></p>
+            </form>
+
+            <div id="eventsList" class="item-list"></div>
+          </section>
+
+          <section id="clipsPanel" class="panel hidden">
+            <div class="panel-title">
+              <div>
+                <p class="eyebrow">WEBSITE CONTENT</p>
+                <h2>Fight Clips</h2>
+              </div>
+              <button id="newClipButton">+ Add Clip</button>
+            </div>
+
+            <form id="clipForm" class="editor hidden">
+              <input id="clipId" type="hidden">
+              <div class="two-col">
+                <label><span>Clip Title</span><input id="clipTitle" required></label>
+                <label><span>Fighter Names</span><input id="clipFighters"></label>
+              </div>
+              <div class="two-col">
+                <label><span>Discipline</span>
+                  <select id="clipDiscipline" required>
+                    <option value="">Select</option>
+                    <option>MMA</option>
+                    <option>Muay Thai</option>
+                    <option>Kickboxing</option>
+                  </select>
+                </label>
+                <label><span>Fight Date</span><input id="clipDate" type="date"></label>
+              </div>
+              <label><span>YouTube Video Link</span><input id="clipUrl" type="url" placeholder="https://youtube.com/..." required></label>
+              <label><span>Event Name</span><input id="clipEvent"></label>
+              <label><span>Caption</span><textarea id="clipCaption" rows="4"></textarea></label>
+              <div class="two-col checkbox-grid">
+                <label class="check"><input id="clipFeatured" type="checkbox"><span>Featured clip</span></label>
+                <label class="check"><input id="clipPublished" type="checkbox" checked><span>Published on website</span></label>
+              </div>
+              <div class="form-actions">
+                <button type="submit">Save Clip</button>
+                <button id="cancelClipButton" type="button" class="ghost-button">Cancel</button>
+              </div>
+              <p id="clipMessage" class="message"></p>
+            </form>
+
+            <div id="clipsList" class="item-list"></div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
