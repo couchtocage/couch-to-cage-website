@@ -1,0 +1,26 @@
+import fs from 'node:fs';
+import path from 'node:path';
+const root=path.resolve(path.dirname(new URL(import.meta.url).pathname),'..');
+const read=p=>fs.readFileSync(path.join(root,p),'utf8');
+const ok=(c,m)=>{if(!c)throw new Error('FAIL: '+m);console.log('PASS:',m)};
+const admin=read('js/admin.js');
+const roster=read('js/admin-roster-v2.js');
+const upgrades=read('js/ctc-upgrades.js');
+const messages=read('js/ctc-admin-messages.js');
+const api=read('netlify/functions/ctc-admin-api.mjs');
+const attach=read('netlify/functions/ctc-message-attachments.mjs');
+const home=read('index.html');
+const hero=read('js/ctc-home-hero.js');
+const css=read('css/styles.css');
+
+ok(admin.includes("data-tab=\"overview\"") && !admin.includes("const savedTab=localStorage.getItem('ctcAdminActiveTab')"),'successful Admin startup lands on Dashboard overview instead of a previously saved tab');
+ok(roster.includes("api('fighters')") && roster.includes('ctc-roster-loaded') && roster.includes('Portal accounts: ${livePortal.length} active'),'portal count is derived from the live fighters endpoint and dispatches live roster state');
+ok(upgrades.includes('loadPortalAccountsLive') && upgrades.includes("people=await api('fighters')"),'Portal Accounts independently refreshes from live Supabase roster data');
+ok(api.includes('attachments_ready') && api.includes('attachment_name') && api.includes("ctc_messages?select=id,fighter_id,sender_role,body,read_at,created_at"),'Fighter Messages falls back to text-only loading if attachment columns are not installed');
+ok(messages.includes('Attachments need the one-time Supabase attachment setup') || messages.includes('Attachments need'),'Admin Messages exposes a setup-specific attachment warning instead of raw JSON');
+ok(attach.includes('CTC-MESSAGE-ATTACHMENTS-RUN-ONCE.sql'),'attachment endpoint returns a clear one-time setup instruction when attachment schema/storage is missing');
+ok(roster.includes('Download Bloodwork') && roster.includes('data-doc-download'),'bloodwork can be downloaded from Admin profile/notification flows');
+ok(home.includes('ctc-home-hero-hq-20260921.mp4') && home.includes('ctc-home-hero-poster.jpg'),'homepage uses the new high-resolution hero asset and poster');
+ok(hero.includes("preload='auto'") && hero.includes("visibilitychange") && css.includes('ctc-home-hero-poster.jpg'),'homepage hero includes iPhone-friendly inline playback retries and a sharp fallback poster');
+ok(fs.existsSync(path.join(root,'assets/video/ctc-home-hero-hq-20260921.mp4')) && fs.existsSync(path.join(root,'assets/video/ctc-home-hero-poster.jpg')),'high-resolution hero video and poster are packaged');
+ok(admin.includes("signOut({scope:'local'})"),'Admin sign-out stays local to that browser session and does not globally revoke other devices');

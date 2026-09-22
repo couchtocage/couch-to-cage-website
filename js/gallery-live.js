@@ -1,0 +1,2 @@
+import { supabase } from './supabase-config.js';
+const grid=document.querySelector('.family-grid');if(grid){const {data}=await supabase.from('gallery_items').select('*').eq('is_published',true).order('sort_order');if(data?.length){grid.innerHTML=data.map((g,i)=>`<button class="gallery-item" type="button" data-gallery-index="${i}" aria-label="Open ${g.alt_text||'CTC photo'}"><img src="${g.image_url}" alt="${g.alt_text||g.caption||'CTC Family photo'}" loading="lazy"></button>`).join('');document.dispatchEvent(new CustomEvent('ctc:gallery-updated'))}}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#050505">
+  <title>Fighter Application Received | Couch To Cage</title>
+  <meta name="description" content="Your Couch To Cage fighter application has been received.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="css/styles.css?v=20260921-pwa-messaging1" rel="stylesheet">
+  <style>
+    .submission-page{min-height:100vh;background:radial-gradient(circle at top,rgba(47,95,155,.22),transparent 32%),radial-gradient(circle at 50% 35%,rgba(212,175,55,.12),transparent 38%),#050505;color:#fff;display:flex;flex-direction:column}
+    .submission-wrap{width:min(780px,calc(100% - 32px));margin:auto;padding:120px 0 70px;text-align:center}
+    .success-sequence{width:min(520px,100%);margin:0 auto 28px;padding:18px 20px;border:1px solid rgba(212,175,55,.35);border-radius:12px;background:rgba(10,10,10,.78);text-align:left;animation:sequenceFade 3.1s ease forwards}
+    .sequence-line{display:flex;align-items:center;gap:12px;color:#ddd;font-weight:700;opacity:0;transform:translateY(8px)}
+    .sequence-line+.sequence-line{margin-top:12px}
+    .sequence-line:nth-child(1){animation:lineIn .45s .15s forwards}
+    .sequence-line:nth-child(2){animation:lineIn .45s .75s forwards}
+    .sequence-line:nth-child(3){animation:lineIn .45s 1.35s forwards}
+    .sequence-check{width:24px;height:24px;border-radius:50%;border:1px solid #d4af37;color:#d4af37;display:grid;place-items:center;font-size:.85rem;flex:0 0 auto}
+    .confirmation-content{opacity:0;transform:translateY(12px);animation:contentIn .65s 2.2s forwards}
+    .success-ring{width:92px;height:92px;margin:0 auto 26px;border:2px solid #d4af37;border-radius:50%;display:grid;place-items:center;box-shadow:0 0 30px rgba(212,175,55,.25)}
+    .success-ring span{font-size:44px;color:#d4af37}
+    .eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.28em;color:#d4af37;margin-bottom:14px}
+    .submission-wrap h1{font-size:clamp(2.35rem,8vw,4.9rem);line-height:.94;margin:0 0 18px;font-weight:900;text-transform:uppercase}
+    .lead{font-size:1.05rem;line-height:1.75;color:#d7d7d7;max-width:670px;margin:0 auto 30px}
+    .next-card{background:rgba(20,20,20,.9);border:1px solid rgba(212,175,55,.55);border-radius:14px;padding:26px;text-align:left;margin:28px 0}
+    .next-card h2{margin:0 0 16px;font-size:1.25rem;text-transform:uppercase}
+    .next-card p{margin:12px 0;color:#ddd;line-height:1.6}
+    .next-card strong{color:#d4af37}
+    .notice{margin:18px 0 0;padding:14px 16px;border-left:3px solid #d4af37;background:rgba(212,175,55,.08);color:#d7d7d7;line-height:1.55;font-size:.94rem}
+    .while-card{margin:24px 0 0;padding:20px;border:1px solid rgba(47,95,155,.55);border-radius:12px;background:rgba(6,20,38,.7)}
+    .while-card h2{margin:0 0 12px;font-size:1.05rem;text-transform:uppercase}
+    .while-card p{margin:7px 0;color:#d8e2ef}
+    .submission-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+    .submission-actions a{display:inline-flex;align-items:center;justify-content:center;min-width:190px;padding:14px 20px;border-radius:6px;font-weight:800;text-transform:uppercase;text-decoration:none}
+    .primary{background:linear-gradient(135deg,#d4af37,#a8790d);color:#050505}.secondary{border:1px solid #d4af37;color:#fff}
+    @keyframes lineIn{to{opacity:1;transform:translateY(0)}}
+    @keyframes sequenceFade{0%,72%{opacity:1}100%{opacity:0;max-height:0;margin-bottom:0;padding-top:0;padding-bottom:0;border-width:0;overflow:hidden}}
+    @keyframes contentIn{to{opacity:1;transform:translateY(0)}}
+    @media (prefers-reduced-motion:reduce){.success-sequence{display:none}.confirmation-content{opacity:1;transform:none;animation:none}}
+  </style>
+<link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/assets/app/ctc-apple-touch.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="CTC"></head>
+<body class="submission-page">
+  <header class="site-header">
+    <a class="brand" href="index.html"><img alt="CTC Couch To Cage" src="assets/ctc-logo-transparent.png"></a>
+    <span aria-hidden="true" class="mobile-motto mobile-motto-left"><img alt="Get Off The Couch" src="assets/motto-get-off-couch.png"></span>
+    <button aria-expanded="false" aria-label="Open navigation" class="menu-button"><span></span><span></span><span></span></button>
+    <span aria-hidden="true" class="mobile-motto mobile-motto-right"><img alt="Into The Cage" src="assets/motto-into-cage.png"></span>
+    <nav class="nav"><a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a><a href="events.html">Upcoming Fights</a><a href="join.html">Become a Fighter</a><a href="join-team.html">Join Our Team</a><a href="sponsors.html">Partner With Us</a><a href="contact.html">Contact</a><a class="ctc-nav-login" href="login.html">🔐 LOGIN · FIGHTERS / ADMIN</a></nav>
+  </header>
+  <main class="submission-wrap">
+    <div class="success-sequence" aria-hidden="true">
+      <div class="sequence-line"><span class="sequence-check">✓</span><span>Uploading application…</span></div>
+      <div class="sequence-line"><span class="sequence-check">✓</span><span>Adding your information to CTC…</span></div>
+      <div class="sequence-line"><span class="sequence-check">✓</span><span>Application received.</span></div>
+    </div>
+    <div class="confirmation-content">
+      <div class="success-ring" aria-hidden="true"><span>✓</span></div>
+      <p class="eyebrow">FIGHTER APPLICATION RECEIVED</p>
+      <h1>You’re on our radar.</h1>
+      <p class="lead">Thank you for applying to become a Couch To Cage fighter. Your information has been received and will be reviewed for future opportunities that match your experience, weight class, and location.</p>
+      <section class="next-card">
+        <h2>What happens next?</h2>
+        <p><strong>1.</strong> Your application has been received and added to our fighter application records.</p>
+        <p><strong>2.</strong> Our team will review the information you submitted.</p>
+        <p><strong>3.</strong> If an upcoming opportunity fits your profile, we’ll contact you directly using the email address or phone number you provided.</p>
+        <p class="notice"><strong>Important:</strong> Submitting an application does not guarantee roster acceptance or a fight booking.</p>
+      </section>
+      <section class="while-card">
+        <h2>While you wait</h2>
+        <p>Stay connected for upcoming fight opportunities, fighter announcements, event coverage, and CTC community updates.</p>
+      </section>
+      <div class="submission-actions"><a class="primary" href="index.html">Return Home</a><a class="secondary" href="events.html">View Fight Calendar</a></div>
+    </div>
+  </main>
+  <noscript><style>.success-sequence{display:none}.confirmation-content{opacity:1!important;transform:none!important}</style></noscript>
+  <script src="js/script.js?v=20260920-full-audit-1" type="module"></script>
+<script src="/js/ctc-install.js?v=20260921-pwa1" defer></script></body>
+</html>

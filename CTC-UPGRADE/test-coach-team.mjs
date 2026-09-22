@@ -1,0 +1,28 @@
+import {readFileSync,existsSync} from 'node:fs';
+import assert from 'node:assert/strict';
+const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
+const api=read('netlify/functions/ctc-team-api.mjs'), sql=read('CTC-COACH-TEAM-LEAVE-SETUP.sql'),admin=read('js/ctc-admin-team.js'),portal=read('coach-portal/portal.js'),fighter=read('fighter-portal/ctc-fight-team.js'),fpHtml=read('fighter-portal/index.html'),login=read('login.html'),signup=read('join.html');
+for(const name of ['ctc_personnel','ctc_personnel_assignments','ctc_personnel_travel','ctc_personnel_messages','ctc_personal_leave']) assert(sql.includes('public.'+name),'Missing '+name);
+assert(sql.includes('enable row level security')&&sql.includes('revoke all on table'), 'New private tables protected');
+assert(api.includes("if(action==='admin-roster'){needAdmin(ctx)"));
+for (const action of ['admin-save-personnel','admin-invite','admin-assignment','admin-travel','admin-message','admin-team-email']) assert(api.includes(`if(action==='${action}'){needAdmin(ctx)`), 'Admin restriction '+action);
+assert(api.includes("if(action==='my-dashboard'){needStaff(ctx)"));
+assert(api.includes("if(action==='fighter-team'){if(!ctx.fighter)"));
+assert(api.includes('auth_user_id=eq.${ctx.fighter.id}')===false); // fighter match restricted via fighter_id
+assert(api.includes('fighter_id=eq.${ctx.fighter.id}&select=id,fight_date,fighter_id'));
+assert(fighter.includes("req('fighter-team',undefined,id)"),'Matchup ID passed as distinct query');
+assert(api.includes("const mid=id(u.searchParams.get('matchup_id'))"),'Backend consumes matchup ID');
+assert(admin.includes('ALL CTC FIGHTERS')||read('admin/index.html').includes('ALL CTC FIGHTERS'));
+assert(admin.includes("'Hello CTC Family,"),'Team templates share CTC greeting');
+assert(admin.includes('activation-reminder')&&admin.includes('info-reminder')&&admin.includes('decline'));
+assert(portal.includes('REQUEST WEIGHT')&&portal.includes('my-message')&&portal.includes('my-leave'));
+assert(portal.includes('sharedTravel')&&portal.includes('Fighter travel:'));
+assert(fpHtml.includes('ctcLeaveForm')&&fpHtml.includes('ctc-fight-team.js'));
+assert(login.includes('coach-portal/'),'Login page links to new portal');
+assert(signup.includes('ctcNoTapology')&&signup.includes('ctc-required-tag'));
+assert(existsSync(new URL('../assets/arena-background-v3.jpeg',import.meta.url)),'Coach portal background exists');
+console.log('PASS: private role-scoped Supabase coach/management/team data and migration');
+console.log('PASS: Admin coach assignments including entire roster, invitations, travel and templates');
+console.log('PASS: fighter matchup ID secure lookup, contact access and coach traveler context');
+console.log('PASS: coach weight request, direct messages, personal leave, login chooser and background');
+console.log('PASS: fighter leave, Tapology N/A, template greeting');

@@ -1,0 +1,10 @@
+CTC PROMOTION FIGHT-CARD UPDATE
+
+- Admin > Public Fight Calendar > + ADD FIGHT: promotion template dropdown: Flex Fight Series, Combat Night, Tuff-N-Uff, Other / custom promotion. Selecting a preset fills the promotion name. All existing date/venue/city/discipline fields remain editable.
+- Admin > Matchmaking: choose the existing Upcoming Fight, choose CTC fighter, save and publish, even without an opponent. Chosen event ID is saved inside existing notes, so no SQL migration is required. An optional opponent headshot URL can be entered. Changes to opponent/name/photo and current roster fighter details propagate to a published card automatically (no need to unpublish and republish). Existing records preserved.
+- Public /events.html: event cards display the existing CTC logo/site styling plus actual promotion logos and distinct promotion themes. Published fighters appear on the parent card with the real fighter profile photo, city, record, weight and fight discipline. Only show VS/opponent when opponent is entered; no fake TBA silhouette.
+- The public Netlify function joins only published matchup IDs to current roster details. Does not expose fighter email, phone, password, documents or private notes. Fallback continues showing published matchups if the public function is unavailable.
+- Existing functionality retained: live roster restoration, download roster and headshots, activation and welcome email, email/password account security, mobile More scrolling, broadcast button fixes.
+
+Deployment: upload the entire ZIP as a new Netlify deployment. Keep existing environment variables SUPABASE_URL, SUPABASE_SECRET_KEY (or SUPABASE_SERVICE_ROLE_KEY). Do not replace the Supabase database or re-run migrations.
+Test in staging/live: add a Flex event; assign fighter with no opponent; save and publish; inspect /events.html. Add opponent to same matchup; save and republish to update card; try custom promotion. No real Supabase or Resend actions were executed by this offline build.
