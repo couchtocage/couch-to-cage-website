@@ -1,0 +1,7 @@
+CTC ADMIN FORM SYNC SETUP
+
+1. In Supabase SQL Editor, run admin/UPGRADE-FOR-PRO-FIGHTERS-AND-FORM-SYNC.sql (the two Team/Sponsor tables were already created).
+2. In Netlify environment variables, add SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY. Keep the service-role key private.
+3. Deploy this ZIP and confirm Netlify Forms detection is enabled.
+4. Submit one Team application and one Sponsor inquiry. They will remain in Netlify Forms and automatically copy into the new admin tabs after Netlify verifies them.
+5. Fighter applications continue using the existing Supabase capture and now include the required Amateur/Professional fighter level.

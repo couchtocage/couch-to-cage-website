@@ -1,0 +1,10 @@
+CTC CINEMATIC FIGHT CARD UPDATE
+
+- Uses the actual user-uploaded Flex Fight Series logo (assets/partners/flex-fight-series-official-user.jpg), not reconstructed artwork.
+- Actual public events.html updated: clickable event cards, expandable full-width fighter list, Fight Card / Event Info tabs, true current fighter photos/record/weight/city/discipline via existing read-only function.
+- Opponent only shown when populated; no fake silhouette or sample fighter content in deployment.
+- Current date filtering removes past events and cancelled/completed events. Removed static August/September 2026 placeholders and hardcoded count from public events page.
+- If Supabase is unavailable, page says it cannot load, never displays outdated placeholder events.
+- Existing admin promotion dropdown and matchup publication remain; existing roster, email and account features untouched.
+- Deploy full ZIP to Netlify. Check active published Supabase event dates and actual fighter headshots.
+- No live production data changed; no live Netlify/Supabase integration was verified offline.

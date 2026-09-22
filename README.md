@@ -1,11 +1,8 @@
-# Couch To Cage Website — Field Cleanup
+# Couch To Cage V2 — Static Netlify Build
 
-Only these fields were removed:
-- Email Handle / Instagram handle field
-- Extra unlabeled Gym Name text box
-- Coach Name
+This project is a plain multi-page HTML/CSS/JavaScript website.
+Netlify does not need to install npm packages or run Vite.
 
-Everything else remains unchanged.
+Deploy the ZIP directly with Netlify Drop. The included `netlify.toml` publishes the project root.
 
-
-Admin V1 files are in `/admin`. See `ADMIN-SETUP.md`.
+Homepage update target: Hero should follow Concept #1 with arena feel and prominently show '30+ Fighters'. Upcoming background=arena. Contact background=Vegas skyline.

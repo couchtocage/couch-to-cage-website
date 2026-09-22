@@ -1,0 +1,10 @@
+CTC EMAIL BROADCAST BUTTON + FOOTER FIX
+Built on CTC-LIVE-ROSTER-RESTORE-FIX.zip. Existing roster, fighter/admin portal, login, security, and download functionality is preserved.
+
+- For broadcast messages about the Fighter Portal, Fighter Login, or account activation, leaving both Button Text and Button Link blank will automatically include the CTA:
+  ACTIVATE FIGHTER ACCOUNT -> https://couchtocage.com/fighter-portal/?activate=1
+- A live warning and button preview appear in Admin > More > Email Broadcasts. If only one of the button fields is filled in, sending or testing is blocked with an explanatory error.
+- Other broadcasts are not forced to include a button; fully specified custom buttons are preserved.
+- Server enforces CTA logic too, so a client-side omission cannot silently send a portal broadcast without the button.
+- The email renderer removes manually typed 'Bleed Blue. Touch Gold.' near the bottom of the message, leaving the automatically styled CTC footer once. Existing saved email drafts are left untouched.
+- No emails are sent by deploying the ZIP. Resend delivery must be tested on the live site after deployment.

@@ -1,0 +1,17 @@
+CTC Website #14 - Gallery Admin Upload Fix
+
+Changes in this build:
+- Admin > Gallery > Add Photo uploads directly to the existing Supabase ctc-media bucket.
+- SAVE now visibly changes to UPLOADING / SAVING while the request is running.
+- Prevents accidental double-submit while uploading.
+- Shows the actual upload/database error in the Admin dialog instead of appearing to do nothing.
+- Validates the existing 10 MB Supabase limit before upload.
+- Accepts JPG/JPEG, PNG, WebP and GIF, matching the existing Supabase bucket.
+- Gives a clear message for HEIC/HEIF iPhone photos rather than silently failing.
+- Keeps the existing CTC #14 design, Pro/Amateur changes, forms, Admin sync, Netlify, and Supabase setup intact.
+
+IMPORTANT ABOUT EMAIL NOTIFICATIONS:
+The Team and Sponsor forms are already detected by Netlify in this build. Email notification recipients are a Netlify site setting, not an HTML setting. In Netlify > Forms > Submission notifications, add Officialcouchtocage@gmail.com for:
+- ctc-team-application
+- ctc-sponsor-inquiry
+The existing ctc-fighter-registration notification can remain as-is.

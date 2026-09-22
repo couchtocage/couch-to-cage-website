@@ -1,0 +1,21 @@
+CTC FIX BUILD — 2026-09-19
+
+Included:
+- Fighter Portal visual overhaul using real CTC fight assets already packaged in the site.
+- Fighter headshot display forced to centered square/circle crop with object-fit: cover (no stretching).
+- Existing fighter headshot upload and bloodwork upload flows preserved.
+- Admin Control Center visual overhaul with cinematic CTC command-center treatment.
+- Admin dashboard roster/ready/bloodwork/matchmaking totals now load from Supabase immediately after admin startup instead of being overwritten by legacy localStorage totals.
+- Dashboard uses loading ellipses while live totals are being fetched rather than displaying misleading zeroes.
+- Applications endpoint filters out fighters already on the active roster by email OR first+last name and excludes non-active application statuses from the New Applications count.
+- Approval still adds fighter to Supabase roster and removes the approved application from the active queue.
+- CTC-PORTAL-MIGRATION.sql includes fighter headshot URL/path compatibility and public fighter-headshots storage setup. Medical documents remain private.
+
+Preserved:
+- Existing Supabase admin auth
+- Matchmaking
+- Bloodwork review
+- Gallery/crop tools
+- Public fight calendar
+- Team/sponsor forms
+- Fighter portal profile/weight/fights functionality
