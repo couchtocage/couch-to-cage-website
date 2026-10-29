@@ -23,20 +23,7 @@ if (yearEl) {
 }
 
 
-const registrationForm = document.querySelector('.ctc-form');
-
-if (registrationForm) {
-  registrationForm.addEventListener('submit', () => {
-    const submitButton = registrationForm.querySelector('.submit-button');
-    const label = submitButton?.querySelector('.submit-label');
-
-    if (submitButton) {
-      submitButton.classList.add('is-loading');
-      submitButton.disabled = true;
-    }
-    if (label) label.textContent = 'Submitting...';
-  });
-}
+// Fighter registration loading and recovery are managed by application-capture.js.
 
 // conditional bloodwork date field (does not alter native Netlify submission)
 const bloodworkChoices = document.querySelectorAll('input[name="has-bloodwork"]');

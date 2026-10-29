@@ -1,0 +1,267 @@
+/* CTC 5.32 — Join The Roster; UI-only redesign on the existing production form.
+   Retains field names, native required validation, Netlify upload action,
+   Supabase mirroring and all management portal files. */
+body.roster-professional.ctc-neon-bg {
+  --ctc-join-gold: #edbd52;
+  --ctc-join-bright: #ffe68e;
+  --ctc-join-ink: #050e1b;
+  background: transparent!important;
+  color: #fff;
+}
+body.roster-professional.ctc-neon-bg .join-main {
+  position: relative;
+  z-index: 1;
+  padding-top: 92px!important;
+  background: transparent!important;
+}
+body.roster-professional.ctc-neon-bg .join-hero {
+  display: flex!important;
+  align-items: flex-end!important;
+  min-height: min(78svh, 680px)!important;
+  padding: 0!important;
+  background: transparent!important;
+  border-bottom: 0!important;
+  overflow: visible!important;
+}
+body.roster-professional.ctc-neon-bg .join-hero-bg,
+body.roster-professional.ctc-neon-bg .join-hero-overlay { display: none!important; }
+body.roster-professional.ctc-neon-bg .join-hero-content {
+  max-width: 1280px;
+  margin: 0 auto!important;
+  padding: 4rem clamp(18px,5.3vw,62px) 2.35rem!important;
+  width: 100%;
+}
+body.roster-professional.ctc-neon-bg .join-intro {
+  max-width: 550px!important;
+  padding: 20px 20px 22px;
+  border-left: 3px solid rgba(237,189,82,.9);
+  background: linear-gradient(90deg,rgba(2,9,19,.91),rgba(2,9,19,.56) 78%,transparent);
+  text-shadow: 0 2px 14px rgba(0,0,0,.8);
+}
+body.roster-professional.ctc-neon-bg .join-intro .eyebrow {
+  color:var(--ctc-join-gold);
+  font-size: clamp(.75rem,1.3vw,.95rem);
+  letter-spacing:.19em;
+  font-weight:900;
+}
+body.roster-professional.ctc-neon-bg .join-intro h1 {
+  font-family: Montserrat, sans-serif;
+  font-weight: 900;
+  letter-spacing:-.07em;
+  line-height: .96;
+  font-size: clamp(2.8rem,6.5vw,5.8rem);
+  color:#fff;
+  margin: 12px 0 17px;
+}
+body.roster-professional.ctc-neon-bg .join-intro h1 span {
+  display: block;
+  margin-top:.10em;
+  font-family:'Permanent Marker',Montserrat,sans-serif;
+  letter-spacing:-.055em;
+  line-height:1.04;
+  color:#ffd362;
+  text-shadow:0 3px 12px #000,0 0 14px rgba(237,189,82,.18);
+}
+body.roster-professional.ctc-neon-bg .join-intro > p:last-of-type {
+  max-width: 520px;
+  font-size: clamp(.99rem,1.45vw,1.15rem);
+  line-height: 1.58;
+  color:#f1f3f8;
+  margin:0;
+}
+body.roster-professional.ctc-neon-bg .join-staple {
+  display:block!important;
+  margin:18px 0 0!important;
+  padding:10px 12px!important;
+  background:rgba(2,10,20,.62)!important;
+  border:0!important;
+  border-left:3px solid var(--ctc-join-gold)!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  text-align:left!important;
+}
+body.roster-professional.ctc-neon-bg .join-staple strong {font-size:clamp(1rem,2vw,1.4rem);line-height:1.25;}
+body.roster-professional.ctc-neon-bg .ctc-join-hero-cta {
+  display: inline-flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  margin-top:20px;
+  padding:15px 20px;
+  min-height:52px;
+  border-radius:8px;
+  color:#050810;
+  background:linear-gradient(105deg,#ffe995,#efbd52 65%,#c78c22);
+  font-weight:900;
+  letter-spacing:.025em;
+  text-decoration:none;
+  box-shadow:0 8px 25px rgba(0,0,0,.22);
+  transition:transform .15s ease;
+}
+body.roster-professional.ctc-neon-bg .ctc-join-hero-cta:active {transform:scale(.98);}
+body.roster-professional.ctc-neon-bg .ctc-join-hero-cta:focus-visible {outline:3px solid #78b8ff;outline-offset:3px;}
+body.roster-professional.ctc-neon-bg .ctc-join-hero-cta span {font-size:1.4rem;line-height:1;}
+body.roster-professional.ctc-neon-bg .join-form-section {
+  padding:0 16px 90px!important;
+  scroll-margin-top: 105px;
+  background:transparent!important;
+}
+body.roster-professional.ctc-neon-bg .join-form-section .registration-panel {
+  position:relative;
+  width:min(100%,1060px)!important;
+  max-width:1060px!important;
+  margin:0 auto!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:22px;
+  background:transparent!important;
+  overflow:visible;
+  box-shadow:0 25px 65px rgba(0,0,0,.38);
+}
+body.roster-professional.ctc-neon-bg .registration-panel .ctc-form {
+  width:100%;
+  border:1px solid rgba(82,147,207,.68)!important;
+  border-radius:22px!important;
+  padding:clamp(20px,3.2vw,38px)!important;
+  background:linear-gradient(180deg,rgba(7,18,34,.975),rgba(3,10,21,.985))!important;
+  box-shadow:inset 0 0 0 1px rgba(234,188,77,.12),0 22px 70px rgba(0,0,0,.4)!important;
+  overflow:visible;
+}
+body.roster-professional.ctc-neon-bg .ctc-form .form-heading {
+  display:flex!important;
+  flex-direction:row!important;
+  gap:18px;
+  align-items:center;
+  margin:0 0 22px;
+  padding:0 0 20px;
+  border-bottom:1px solid rgba(231,186,83,.28)!important;
+}
+body.roster-professional.ctc-neon-bg .ctc-form .ctc-form-heading-icon {
+  display:grid;
+  place-items:center;
+  flex:0 0 54px;
+  width:54px;
+  height:60px;
+  border:1px solid rgba(237,189,82,.55);
+  border-radius:12px;
+  color:#ffe187;
+  background:#101b2a;
+}
+body.roster-professional.ctc-neon-bg .ctc-form .ctc-form-heading-icon svg {width:30px;height:30px;}
+body.roster-professional.ctc-neon-bg .ctc-form .form-heading h3 {
+  font-family:Montserrat,sans-serif;
+  color:#fff!important;
+  font-size:clamp(1.45rem,3.5vw,2.35rem)!important;
+  letter-spacing:-.045em;
+  line-height:1.12;
+  margin:0 0 6px;
+}
+body.roster-professional.ctc-neon-bg .ctc-form .form-heading h3 span {color:var(--ctc-join-gold);}
+body.roster-professional.ctc-neon-bg .ctc-form .form-heading p {font-size:.92rem;line-height:1.55;color:#c2cfdd;}
+body.roster-professional.ctc-neon-bg .ctc-registration-steps {
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  max-width:100%;
+  padding:0 0 12px;
+  margin:0 0 4px;
+  scrollbar-width:thin;
+  scrollbar-color:#a67d30 transparent;
+  -webkit-overflow-scrolling:touch;
+}
+body.roster-professional.ctc-neon-bg .ctc-registration-steps a {
+  flex:none;
+  min-height:42px;
+  display:inline-flex;
+  gap:7px;
+  align-items:center;
+  border:1px solid #35465e;
+  border-radius:10px;
+  color:#e1e7f2;
+  text-decoration:none;
+  font-size:.78rem;
+  font-weight:800;
+  padding:9px 12px;
+  background:#0d1c2e;
+  white-space:nowrap;
+}
+body.roster-professional.ctc-neon-bg .ctc-registration-steps a.is-active {color:#06101e;border-color:#f6cd6a;background:linear-gradient(110deg,#ffe389,#d5a43b);}
+body.roster-professional.ctc-neon-bg .ctc-registration-steps a b {opacity:.73;font-variant-numeric:tabular-nums;}
+body.roster-professional.ctc-neon-bg .ctc-registration-step-indicator {
+  display:flex;
+  align-items:center;
+  gap:14px;
+  justify-content:space-between;
+  color:#d6e3f4;
+  font-size:.70rem;
+  font-weight:900;
+  letter-spacing:.1em;
+  margin:0 0 18px;
+}
+body.roster-professional.ctc-neon-bg .ctc-registration-progress {flex:1;max-width:150px;height:5px;border-radius:9px;background:#253952;overflow:hidden;}
+body.roster-professional.ctc-neon-bg .ctc-registration-progress span {display:block;height:100%;background:#edbd52;transition:width .18s ease;}
+body.roster-professional.ctc-neon-bg .ctc-form .form-section {scroll-margin-top:105px;margin:0!important;padding:22px 0!important;border-top:1px solid rgba(100,126,159,.26)!important;border-bottom:0!important;}
+body.roster-professional.ctc-neon-bg .ctc-form .form-section h4 {color:#f0bf5b!important;font-size:1.02rem!important;letter-spacing:.045em!important;margin:0 0 17px!important;}
+body.roster-professional.ctc-neon-bg .ctc-form .field-grid {gap:12px!important;margin-bottom:8px;}
+body.roster-professional.ctc-neon-bg .ctc-form label > span,
+body.roster-professional.ctc-neon-bg .ctc-form legend {color:#edf3fb!important;font-size:.88rem!important;font-weight:700!important;}
+body.roster-professional.ctc-neon-bg .ctc-form em.ctc-required-tag {border-color:rgba(226,180,76,.47);color:#e6bd67!important;background:rgba(237,189,82,.07);font-size:.62rem!important;font-weight:800!important;white-space:normal;}
+body.roster-professional.ctc-neon-bg .ctc-form input:not([type="checkbox"]):not([type="radio"]),
+body.roster-professional.ctc-neon-bg .ctc-form select,
+body.roster-professional.ctc-neon-bg .ctc-form textarea {
+  width:100%;
+  min-height:51px!important;
+  border:1px solid #52657d!important;
+  border-radius:10px!important;
+  background-color:rgba(13,26,44,.96)!important;
+  color:#f8fafc!important;
+  padding:12px 14px!important;
+  font-size:16px!important;
+  font-weight:500!important;
+  box-shadow:none!important;
+}
+body.roster-professional.ctc-neon-bg .ctc-form textarea {min-height:122px!important;}
+body.roster-professional.ctc-neon-bg .ctc-form :is(input,select,textarea):focus-visible {
+  outline:2px solid rgba(245,197,85,.85)!important;
+  outline-offset:1px;
+  border-color:#f4cb76!important;
+}
+body.roster-professional.ctc-neon-bg .ctc-form .choice-row {gap:9px;}
+body.roster-professional.ctc-neon-bg .ctc-form .choice span {background:#122037;color:#edf2f9!important;border:1px solid #546577;border-radius:11px;}
+body.roster-professional.ctc-neon-bg .ctc-form .choice input:checked+span {color:#08101d!important;border-color:#e9c269;background:linear-gradient(105deg,#ffe69e,#d4a342);}
+body.roster-professional.ctc-neon-bg .ctc-form .ctc-no-tapology {color:#d2dce8;}
+body.roster-professional.ctc-neon-bg .ctc-form .ctc-debut-choice {border-color:#4b5b70;background:#0c1a2c;}
+body.roster-professional.ctc-neon-bg .ctc-form .ctc-discipline-records fieldset {margin:14px 0;}
+body.roster-professional.ctc-neon-bg .ctc-form .consent span {color:#d4ddea!important;}
+body.roster-professional.ctc-neon-bg .ctc-form .submit-button {min-height:58px!important;border:1px solid #ffda78;border-radius:10px;background:linear-gradient(105deg,#ffe89b,#eeb943 65%,#d39a30);color:#060b14;}
+body.roster-professional.ctc-neon-bg .ctc-form .privacy-note {color:#b8c6d4;}
+@media(max-width:760px){
+  body.roster-professional.ctc-neon-bg .join-main{padding-top:88px!important;}
+  body.roster-professional.ctc-neon-bg .join-hero{min-height:525px!important;}
+  body.roster-professional.ctc-neon-bg .join-hero-content{padding:4.5rem 18px 1.5rem!important;}
+  body.roster-professional.ctc-neon-bg .join-intro{width:100%;max-width:380px!important;padding:15px 16px 16px;}
+  body.roster-professional.ctc-neon-bg .join-intro h1{font-size:clamp(2.55rem,10.5vw,3.5rem)!important;letter-spacing:-.06em;}
+  body.roster-professional.ctc-neon-bg .join-intro h1 span{font-size:1.18em;}
+  body.roster-professional.ctc-neon-bg .join-intro > p:last-of-type{font-size:.95rem!important;line-height:1.46;}
+  body.roster-professional.ctc-neon-bg .join-staple{margin-top:12px!important;padding:9px 10px!important;}
+  body.roster-professional.ctc-neon-bg .ctc-join-hero-cta{min-height:48px;margin-top:14px;padding:11px 15px;font-size:.86rem;}
+  body.roster-professional.ctc-neon-bg .join-form-section{padding:0 12px 64px!important;}
+  body.roster-professional.ctc-neon-bg .registration-panel .ctc-form{padding:18px 14px 25px!important;border-radius:18px!important;}
+  body.roster-professional.ctc-neon-bg .ctc-form .form-heading{gap:11px;align-items:center!important;}
+  body.roster-professional.ctc-neon-bg .ctc-form .ctc-form-heading-icon{width:44px;height:48px;flex-basis:44px;}
+  body.roster-professional.ctc-neon-bg .ctc-form .ctc-form-heading-icon svg{width:25px;height:25px;}
+  body.roster-professional.ctc-neon-bg .ctc-form .form-heading h3{font-size:clamp(1.22rem,5vw,1.7rem)!important;}
+  body.roster-professional.ctc-neon-bg .ctc-form .form-heading p{font-size:.81rem;}
+  body.roster-professional.ctc-neon-bg .ctc-form .field-grid.two,
+  body.roster-professional.ctc-neon-bg .ctc-form .field-grid.three{grid-template-columns:minmax(0,1fr)!important;}
+  body.roster-professional.ctc-neon-bg .ctc-form .form-section{padding:19px 0!important;}
+  body.roster-professional.ctc-neon-bg .ctc-form input[type="file"]{font-size:.77rem!important;}
+}
+@media (prefers-reduced-motion:reduce) {
+  body.roster-professional.ctc-neon-bg .ctc-join-hero-cta,
+  body.roster-professional.ctc-neon-bg .ctc-registration-progress span {transition:none;}
+}
+
+/* Keep the existing referral-section ID for backwards compatibility. */
+body.roster-professional.ctc-neon-bg .ctc-step-anchor{display:block;height:0;width:0;scroll-margin-top:105px;}

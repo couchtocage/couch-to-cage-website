@@ -1,3 +1,13 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /admin-portal/
+Disallow: /coach-portal/
+Disallow: /fighter-portal/
+Disallow: /thank-you/
+Disallow: /login.html
+Disallow: /hq/
+Disallow: /fighter-thank-you.html
+Disallow: /team-thank-you.html
+Disallow: /sponsor-thank-you.html
 Sitemap: https://couchtocage.com/sitemap.xml

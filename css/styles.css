@@ -190,8 +190,11 @@ h1 span {
 .section { padding: 7rem clamp(1.1rem, 6vw, 6rem); }
 
 .section-heading h2,
+.events-page-shell .section-heading h1,
 .join-intro h2,
-.contact h2 {
+.join-intro h1,
+.contact h2,
+.contact h1 {
   margin-bottom: 0;
   font-size: clamp(2.8rem, 5.6vw, 5.8rem);
   line-height: .96;
@@ -1503,7 +1506,7 @@ body.lightbox-open{overflow:hidden}
   position: static;
   max-width: 920px;
 }
-.join-hero .join-intro h2 {
+.join-hero .join-intro h2, .join-hero .join-intro h1 {
   margin-bottom: .65rem;
   font-size: clamp(3.2rem, 7vw, 7.2rem);
 }
@@ -1555,7 +1558,7 @@ body.lightbox-open{overflow:hidden}
   .join-hero-content {
     padding: 4.5rem 1.5rem 2.8rem;
   }
-  .join-hero .join-intro h2 {
+  .join-hero .join-intro h2, .join-hero .join-intro h1 {
     font-size: clamp(3rem, 14vw, 5rem);
   }
   .join-hero .join-staple {
@@ -1596,7 +1599,7 @@ body.lightbox-open{overflow:hidden}
     padding: clamp(15.5rem, 70vw, 20rem) 1.5rem 2.8rem;
   }
 
-  .join-hero .join-intro h2 {
+  .join-hero .join-intro h2, .join-hero .join-intro h1 {
     font-size: clamp(2.8rem, 12.5vw, 4.45rem);
     line-height: .92;
   }
@@ -1650,7 +1653,7 @@ body.lightbox-open{overflow:hidden}
     padding: clamp(18rem, 49vw, 22rem) 1.5rem 2.8rem;
   }
 
-  .join-hero .join-intro h2 {
+  .join-hero .join-intro h2, .join-hero .join-intro h1 {
     font-size: clamp(2.8rem, 12.5vw, 4.45rem);
     line-height: .92;
   }
@@ -1727,7 +1730,7 @@ body {
     min-width: 0;
   }
 
-  .join-hero .join-intro h2 {
+  .join-hero .join-intro h2, .join-hero .join-intro h1 {
     overflow-wrap: normal;
     word-break: normal;
   }
@@ -1806,13 +1809,13 @@ footer {
   position:relative;
   background:
     linear-gradient(rgba(5,10,20,.70),rgba(5,10,20,.82)),
-    url('images/upcoming-arena-bg.jpg') center/cover no-repeat;
+    url('/assets/arena-background-v3.jpeg') center/cover no-repeat;
 }
 .contact, #contact, .contact-section{
   position:relative;
   background:
     linear-gradient(rgba(5,10,20,.72),rgba(5,10,20,.86)),
-    url('images/vegas-skyline-bg.jpg') center/cover no-repeat;
+    url('/assets/ctc-vegas-login-approved.jpeg') center/cover no-repeat;
 }
 
 
@@ -2131,7 +2134,7 @@ body.contact-bg-page .instagram-card {
 
   body.events-bg-page .events-page-shell { padding: 21rem 1.25rem 4rem; }
   body.events-bg-page .section-heading { text-align:left; }
-  body.events-bg-page .section-heading h2 { font-size: clamp(3rem,13vw,4.6rem); line-height:.95; }
+  body.events-bg-page .section-heading h2,body.events-bg-page .section-heading h1 { font-size: clamp(3rem,13vw,4.6rem); line-height:.95; }
   body.events-bg-page .events-summary { margin-top: 2rem !important; }
   body.events-bg-page .fight-count { min-height: 170px; }
 
@@ -3394,13 +3397,6 @@ body.ctc-preview-page .ctc-card-expanded{padding-inline:10px!important;}
 body.ctc-preview-page .ctc-card-tabs{margin-inline:-10px!important;padding-inline:10px!important;}
 }
 
-/* Optional homepage-only hero media; rest of site's fixed background stays original. */
-body.home-bg-page .hero{isolation:isolate;overflow:hidden;}
-body.home-bg-page .hero>.ctc-home-hero-media{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:#03050a url("../assets/video/ctc-home-hero-poster.jpg") center/cover no-repeat;}
-body.home-bg-page .ctc-home-hero-media>img,body.home-bg-page .ctc-home-hero-media>video{width:100%;height:100%;object-fit:cover;display:block;}
-body.home-bg-page .ctc-home-hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,6,15,.28),rgba(1,6,15,.67));}
-body.home-bg-page .hero>.hero-copy{position:relative;z-index:1;}
-
 /* CTC 2026-09-20: keep roster weight-class exporter usable on iPhone. */
 .ctc-roster-download-class{display:flex;flex-direction:column;gap:.35rem;font-size:.78rem;font-weight:700;color:#e7c36b;min-width:145px;}
 .ctc-roster-download-class select{width:100%;min-width:0;padding:.65rem;border:1px solid #97782f;border-radius:10px;background:#101724;color:#fff;}
@@ -3409,3 +3405,34 @@ body.home-bg-page .hero>.hero-copy{position:relative;z-index:1;}
 
 /* PWA discovery, deliberately below the hero */
 .ctc-app-promo{padding:35px 22px}.ctc-app-promo-inner{max-width:1050px;margin:auto;background:#0b1523;border:1px solid #bb963f;border-radius:22px;padding:24px;display:flex;align-items:center;gap:22px}.ctc-app-promo-inner img{width:78px;height:78px;object-fit:contain;flex:none}.ctc-app-promo-inner h2{color:#fff;margin:.2em 0;font-size:clamp(24px,5vw,40px)}.ctc-app-promo-inner p:not(.eyebrow){color:#dae0eb}.ctc-app-promo-inner .button{margin:4px 4px 4px 0;white-space:normal;text-align:center}@media(max-width:620px){.ctc-app-promo-inner{flex-direction:column;text-align:center}.ctc-app-promo-inner .button{display:block;width:100%;box-sizing:border-box}}
+
+/* CTC card-removal action: visually distinct from destructive profile deletion. */
+.ctc-remove-from-card{border:1px solid #b87575!important;background:#2b1118!important;color:#ffd9d9!important;border-radius:10px;padding:10px 14px;font-weight:800;cursor:pointer;}
+.ctc-remove-from-card:disabled{opacity:.6;cursor:wait;}
+/* Join Team: role-specific Fighter Relations / Fighter Recruitment applications. */
+.mock-team .ctc-role-questions{margin:1rem 0 0;border:1px solid #765b24;border-radius:8px;background:#101923;padding:1rem 1.1rem;min-width:0;}
+.mock-team .ctc-role-questions legend{padding:0 .55rem;color:#efc34f;font-size:.84rem;font-weight:900;letter-spacing:.08em;}
+.mock-team .ctc-role-intro{margin:0 0 .85rem;color:#d5dae0;font-size:.83rem;line-height:1.55;}
+.mock-team .ctc-role-questions-grid{display:grid;grid-template-columns:1fr;gap:.9rem;}
+.mock-team .ctc-role-questions-grid label{display:flex;flex-direction:column;gap:.45rem;font-size:.78rem;line-height:1.45;font-weight:700;}
+.mock-team .ctc-role-questions-grid textarea{width:100%;min-height:94px;box-sizing:border-box;background:#080f19;color:#fff;border:1px solid #77602b;border-radius:5px;padding:.7rem;font:inherit;resize:vertical;}
+.mock-team .ctc-role-questions-grid textarea:focus{outline:2px solid #efc34f;outline-offset:2px;}
+.mock-team .ctc-role-questions[hidden],.mock-team .ctc-role-questions-grid[hidden]{display:none!important;}
+/* Team referral follow-up remains hidden until applicant chooses Yes. */
+.mock-team #ctcTeamReferredByWrap[hidden]{display:none!important}
+
+/* 5.23: Gallery uses its original CTC Family hero with one subdued video background.
+   Home retains the existing fixed arena photograph; no video element is placed over it. */
+body.home-bg-page .ctc-family-home-hero {
+  background: transparent !important;
+}
+@media (max-width: 760px) {
+  .gallery-page .family .section-heading {
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .gallery-page .family .section-heading h2 {
+    max-width: 100%;
+  }
+}
