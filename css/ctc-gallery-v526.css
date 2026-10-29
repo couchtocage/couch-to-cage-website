@@ -1,0 +1,49 @@
+/* CTC 5.26 – actual gallery redesign. Scoped entirely to the public gallery page. */
+body.gallery-page {background:#02060d;color:#f9f9fb;}
+body.gallery-page .ctc-gallery-v526{padding-top:clamp(86px,9vw,118px);min-height:100vh;overflow:hidden;}
+body.gallery-page .ctc-gallery-hero{position:relative;isolation:isolate;min-height:440px;display:flex;align-items:center;background:linear-gradient(90deg,rgba(1,5,11,.96) 0%,rgba(1,5,11,.88) 45%,rgba(1,5,11,.42) 100%),linear-gradient(0deg,#02060d,transparent 64%),url('../assets/arena-background-v3.jpeg') center 54%/cover no-repeat;}
+body.gallery-page .ctc-gallery-hero-inner{position:relative;z-index:1;width:min(1100px,100%);margin:auto;padding:clamp(32px,5vw,68px) clamp(22px,5vw,64px);}
+body.gallery-page .ctc-gallery-eyebrow{color:#efbd4b;font-size:clamp(.78rem,2vw,1rem);font-weight:900;letter-spacing:.33em;margin:0 0 1.5rem;}
+body.gallery-page .ctc-gallery-hero h1{font-size:clamp(2.6rem,6.6vw,5.6rem);letter-spacing:-.055em;font-weight:900;line-height:.98;max-width:880px;margin:0;}
+body.gallery-page .ctc-gallery-hero h1 span{display:block;}
+body.gallery-page .ctc-gallery-gold{color:#f1bd48;}
+body.gallery-page .ctc-gallery-lead{max-width:650px;color:#c8ccd6;font-size:clamp(.96rem,2.1vw,1.19rem);line-height:1.65;margin:1.45rem 0 0;}
+body.gallery-page .ctc-gallery-content{width:min(1230px,100%);margin:0 auto;padding:12px clamp(14px,4.5vw,54px) 110px;position:relative;z-index:1;}
+body.gallery-page .gallery-tabs{display:flex;gap:6px;max-width:none;margin:2px auto 22px;padding:6px;border:1px solid rgba(226,174,60,.55);border-radius:100px;background:#04090f;}
+body.gallery-page .gallery-tabs button{padding:1rem .75rem;font-size:clamp(.8rem,2vw,1rem);min-width:0;cursor:pointer;}
+body.gallery-page .ctc-gallery-filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 24px;}
+body.gallery-page .ctc-gallery-filters button{padding:9px 16px;border:1px solid rgba(232,238,255,.24);background:#0c121c;border-radius:50px;color:#e5e9ef;font:inherit;font-size:.78rem;font-weight:700;white-space:nowrap;min-height:41px;cursor:pointer;}
+body.gallery-page .ctc-gallery-filters button.active{color:#05070d;background:linear-gradient(135deg,#ffe27a,#dda529);border-color:#edbe4b;box-shadow:0 4px 20px rgba(231,169,42,.18);}
+body.gallery-page .ctc-gallery-filters button:focus-visible,body.gallery-page .ctc-gallery-card:focus-visible,body.gallery-page .ctc-gallery-feature-button:focus-visible{outline:3px solid #ffdf7c;outline-offset:3px;}
+body.gallery-page .ctc-gallery-feature{margin:10px 0 18px;}
+body.gallery-page .ctc-gallery-feature[hidden]{display:none!important;}
+body.gallery-page .ctc-gallery-feature-button{position:relative;display:block;width:100%;height:clamp(180px,30vw,310px);border:1px solid rgba(245,185,50,.5);background:#080e17;color:white;overflow:hidden;border-radius:18px;text-align:left;cursor:pointer;padding:0;}
+body.gallery-page .ctc-gallery-feature-button img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.61;}
+body.gallery-page .ctc-gallery-feature-button::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,4,9,.96),rgba(0,4,9,.71) 48%,rgba(0,4,9,.04) 100%);}
+body.gallery-page .ctc-gallery-feature-copy{position:relative;z-index:1;display:flex;flex-direction:column;gap:9px;padding:clamp(18px,5vw,50px);width:min(70%,660px);}
+body.gallery-page .ctc-gallery-feature-copy small{color:#e9b83e;font-weight:900;letter-spacing:.26em;font-size:.73rem;}
+body.gallery-page .ctc-gallery-feature-copy strong{font-size:clamp(1.4rem,3vw,2.6rem);font-weight:900;text-transform:uppercase;line-height:1.1;}
+body.gallery-page .ctc-gallery-feature-copy span{font-size:clamp(.78rem,1.6vw,1rem);color:#bfc7d4;line-height:1.5;}
+body.gallery-page .ctc-gallery-feature-arrow{position:absolute;right:24px;bottom:24px;z-index:2;border-radius:100%;background:#e9b843;color:#0e0c0a;font-size:2rem;font-weight:bold;width:44px;height:44px;display:grid;place-items:center;}
+body.gallery-page .family-grid.ctc-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))!important;column-gap:15px!important;row-gap:16px!important;gap:16px!important;columns:initial!important;margin:0;padding:0;overflow:visible;background:transparent!important;}
+body.gallery-page .ctc-gallery-card{position:relative;display:flex;flex-direction:column;min-width:0;aspect-ratio:auto!important;height:auto;border:1px solid rgba(227,171,58,.3);border-radius:14px;overflow:hidden;background:#070d16;margin:0;break-inside:auto;cursor:zoom-in;padding:0;color:#fff;text-align:left;box-shadow:0 6px 22px rgba(0,0,0,.28);}
+body.gallery-page .ctc-gallery-card img{display:block;width:100%;height:auto!important;aspect-ratio:1.25/1;object-fit:cover!important;min-height:0!important;flex:none;}
+body.gallery-page .ctc-gallery-card:hover img{transform:scale(1.028);}
+body.gallery-page .ctc-gallery-card-info{padding:11px 13px 14px;display:flex;flex-direction:column;gap:5px;width:100%;}
+body.gallery-page .ctc-gallery-card-category{color:#f0c257!important;font-size:.67rem;letter-spacing:.11em;text-transform:uppercase;font-weight:800;}
+body.gallery-page .ctc-gallery-card-info strong{font-size:.87rem;font-weight:800;line-height:1.25;overflow-wrap:anywhere;}
+body.gallery-page .ctc-gallery-card-info small{font-size:.76rem;color:#a5aeba;}
+body.gallery-page .ctc-gallery-empty{padding:55px 20px;text-align:center;color:#a9b5c3;}
+body.gallery-page .ctc-gallery-empty[hidden]{display:none!important;}
+body.gallery-page .video-grid{margin:20px 0 0;}
+body.gallery-page .video-card{border-color:rgba(238,182,55,.42);background:#090e15;border-radius:15px;}
+body.gallery-page .video-thumb{aspect-ratio:1.4;}
+body.gallery-page .video-card strong{font-size:.94rem;}
+body.gallery-page[data-gallery-template="editorial"] .ctc-gallery-hero{min-height:300px;}
+body.gallery-page[data-gallery-template="editorial"] .family-grid.ctc-gallery-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:12px!important;}
+body.gallery-page[data-gallery-template="classic"] .family-grid.ctc-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:22px!important;}
+body.gallery-page[data-gallery-template="classic"] .ctc-gallery-feature{display:none;}
+@media(max-width:900px){body.gallery-page .family-grid.ctc-gallery-grid,body.gallery-page[data-gallery-template="editorial"] .family-grid.ctc-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}}
+@media(max-width:550px){body.gallery-page .ctc-gallery-v526{padding-top:88px;}body.gallery-page .ctc-gallery-hero{min-height:350px;background-position:55% 50%;}body.gallery-page .ctc-gallery-hero-inner{padding:25px 23px;}body.gallery-page .ctc-gallery-hero h1{font-size:clamp(2.1rem,10.1vw,3.1rem);}body.gallery-page .ctc-gallery-lead{font-size:.88rem;line-height:1.55;}body.gallery-page .ctc-gallery-content{padding:12px 16px 80px;}body.gallery-page .ctc-gallery-filters{flex-wrap:nowrap;overflow-x:auto;padding:3px 2px 14px;scrollbar-width:none;margin:0 0 12px;}body.gallery-page .ctc-gallery-filters button{flex:none;padding:8px 13px;font-size:.72rem;}body.gallery-page .ctc-gallery-feature-button{height:195px;border-radius:13px;}body.gallery-page .ctc-gallery-feature-copy{width:78%;padding:17px;}body.gallery-page .ctc-gallery-feature-copy small{font-size:.57rem;}body.gallery-page .ctc-gallery-feature-copy strong{font-size:1.24rem;}body.gallery-page .ctc-gallery-feature-copy span{font-size:.72rem;}body.gallery-page .ctc-gallery-feature-arrow{right:13px;bottom:13px;width:30px;height:30px;font-size:1.35rem;}body.gallery-page .family-grid.ctc-gallery-grid,body.gallery-page[data-gallery-template="editorial"] .family-grid.ctc-gallery-grid,body.gallery-page[data-gallery-template="classic"] .family-grid.ctc-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px;}body.gallery-page .ctc-gallery-card{border-radius:10px;}body.gallery-page .ctc-gallery-card-info{padding:8px 9px 11px;}body.gallery-page .ctc-gallery-card-info strong{font-size:.7rem;}body.gallery-page .ctc-gallery-card-category{font-size:.58rem;}body.gallery-page .ctc-gallery-card img{aspect-ratio:.95;}body.gallery-page .gallery-tabs button{min-height:52px;padding:.8rem .4rem;font-size:.8rem;}}
+
+body.gallery-page .ctc-gallery-card:first-child img {object-fit:cover!important;background:none!important;}

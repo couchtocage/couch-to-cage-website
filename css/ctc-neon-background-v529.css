@@ -1,0 +1,223 @@
+/* CTC 5.27 | user-approved neon facade background. Fixed artwork independent
+   of page scroll (including iOS, which ignores background-attachment:fixed).
+   No full-page tint, brightness reduction, or blur; card surfaces keep form legible. */
+html { background: #020a13 !important; }
+body.ctc-neon-bg {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  background: transparent !important;
+  background-image: none !important;
+  background-color: transparent !important;
+  background-attachment: scroll !important;
+}
+body.ctc-neon-bg::before {
+  content: "" !important;
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100dvh !important;
+  z-index: -1 !important;
+  display: block !important;
+  pointer-events: none !important;
+  background: #020a13 url('../assets/design/ctc-neon-street-v527.webp') center center / cover no-repeat !important;
+  opacity: 1 !important;
+  filter: none !important;
+  transform: translateZ(0);
+}
+body.ctc-neon-bg::after { display: none !important; content: none !important; }
+body.ctc-neon-bg > .admin-bg { display: none !important; }
+
+/* Registration: same fixed neon all the way through the form, not only the header. */
+body.ctc-neon-bg .join-main,
+body.ctc-neon-bg .join-hero,
+body.ctc-neon-bg .join-form-section { background: transparent !important; background-image: none !important; }
+body.ctc-neon-bg .join-hero-bg,
+body.ctc-neon-bg .join-hero-overlay { display: none !important; }
+body.ctc-neon-bg .join-hero { min-height: 66svh !important; }
+body.ctc-neon-bg .join-hero-content { padding-top: 7rem !important; padding-bottom: 2.2rem !important; }
+body.ctc-neon-bg .join-hero .join-intro h2,
+body.ctc-neon-bg .join-hero .join-intro p { text-shadow: 0 3px 16px #000, 0 2px 5px #000; }
+body.ctc-neon-bg .join-form-section .registration-panel { background: rgba(4, 13, 25, .93) !important; }
+
+/* Common portal shells: remove old full-screen arena/gradient backgrounds.
+   Do not make editable field/card surfaces transparent. */
+body.ctc-neon-bg .portal-shell,
+body.ctc-neon-bg .wrap { background: transparent !important; background-image: none !important; }
+body.ctc-neon-bg .portal-shell .hero { background-image: none !important; background-color: rgba(5, 16, 30, .68) !important; }
+body.ctc-neon-bg #authCard.auth::before { display: none !important; }
+body.ctc-neon-bg .ctc-admin-hero { background: transparent !important; background-image: none !important; }
+body.ctc-neon-bg .ctc-admin-login-art { background-image: none !important; background-color: #0a1828 !important; }
+body.ctc-neon-bg .ctc-admin-shell { background: transparent !important; }
+
+/* Executive app uses its own full-viewport overlay. It therefore needs a fixed
+   wallpaper INSIDE that overlay; the body wallpaper alone would be covered. */
+body.ctc-neon-bg #ctcV5App {
+  background: transparent !important;
+  isolation: isolate;
+}
+body.ctc-neon-bg #ctcV5App::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: #020a13 url('../assets/design/ctc-neon-street-v527.webp') center / cover no-repeat;
+}
+body.ctc-neon-bg #ctcV5App .ctc-v5-shell {
+  position: absolute;
+  z-index: 1;
+  background: transparent !important;
+}
+body.ctc-neon-bg #ctcV5App .ctc-v5-view,
+body.ctc-neon-bg #ctcV5App .ctc-v5-screen,
+body.ctc-neon-bg #ctcV5App .ctc-v5-hero,
+body.ctc-neon-bg #ctcV5App .ctc-v5-screenhero {
+  background: transparent !important;
+  background-image: none !important;
+  background-color: transparent !important;
+}
+body.ctc-neon-bg #ctcV5App .ctc-v5-hero h1,
+body.ctc-neon-bg #ctcV5App .ctc-v5-screenhero h2 { text-shadow: 0 3px 16px #000, 0 2px 5px #000; }
+@media(max-width: 760px){
+  body.ctc-neon-bg .join-hero { min-height: 61svh !important; }
+  body.ctc-neon-bg .join-hero-content { padding: 8rem 1.45rem 2rem !important; }
+  body.ctc-neon-bg::before { height: 100dvh !important; background-position: 49% center !important; }
+}
+
+/* Team and older portal auth modules have more-specific :has() body wallpaper
+   rules. Override those too, including rules injected later in body. */
+body.ctc-neon-bg:has(#auth:not([hidden])),
+body.ctc-neon-bg:has(#loginPanel:not([hidden])),
+body.ctc-neon-bg:has(#auth:not(.hidden)),
+body.ctc-neon-bg:has(#authCard:not(.hidden)),
+body.ctc-neon-bg:has(#authCard:not([hidden])) {
+  background: transparent !important;
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+
+/* CTC 5.29 — iPhone portal artwork-fit and full-route wallpaper repair.
+   Desktop uses the full original; mobile is a pre-composed portrait crop that
+   preserves the entire original art with extended city background (no dimming).
+   CSS-only: login, app JS, data, and permissions are unchanged. */
+body.ctc-neon-bg {
+  isolation: isolate !important;
+  background-color: transparent !important;
+}
+body.ctc-neon-bg::before {
+  z-index: 0 !important; /* Don't put the mural behind the body's black canvas. */
+  background-image: url('../assets/design/ctc-neon-street-v527.webp') !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  opacity: 1 !important;
+  filter: none !important;
+  transform: none !important;
+}
+/* Place app content above the fixed wallpaper without touching component controls. */
+body.ctc-neon-bg > main,
+body.ctc-neon-bg > .wrap,
+body.ctc-neon-bg > .page,
+body.ctc-neon-bg > .admin-main,
+body.ctc-neon-bg > .ctc-admin-shell,
+body.ctc-neon-bg > .ctc-admin-login,
+body.ctc-neon-bg > .site-header,
+body.ctc-neon-bg > .admin-header {
+  z-index: 1;
+}
+body.ctc-neon-bg > main,
+body.ctc-neon-bg > .wrap,
+body.ctc-neon-bg > .page,
+body.ctc-neon-bg > .admin-main,
+body.ctc-neon-bg > .ctc-admin-shell,
+body.ctc-neon-bg > .ctc-admin-login {
+  position: relative;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+/* The Executive login is its own full-height container. Its background remains
+   transparent outside the form card, so the art is visible behind it. */
+body.ctc-neon-bg:not(.ctc-v5-live) > .admin-main {
+  background: transparent !important;
+}
+body.ctc-neon-bg #loginPanel.ctc-auth-panel {
+  background: rgba(4,13,29,.87) !important;
+}
+/* Team role and Fighter login styles include backgrounds injected after the
+   page stylesheet. Do not alter those opaque form-card surfaces. */
+body.ctc-neon-bg.portal-shell,
+body.ctc-neon-bg:has(#auth:not([hidden])),
+body.ctc-neon-bg:has(#authCard:not(.hidden)),
+body.ctc-neon-bg:has(#loginPanel:not([hidden])) {
+  background: transparent !important;
+  background-image: none !important;
+}
+body.ctc-neon-bg .ctc-admin-screen,
+body.ctc-neon-bg .ctc-admin-view,
+body.ctc-neon-bg .ctc-admin-login,
+body.ctc-neon-bg .portal-shell,
+body.ctc-neon-bg .page,
+body.ctc-neon-bg .wrap {
+  background: transparent !important;
+  background-image: none !important;
+}
+/* Executive's signed-in app is a dedicated layer with a separate wallpaper. */
+body.ctc-neon-bg #ctcV5App::before {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  background: #020a13 url('../assets/design/ctc-neon-street-v527.webp') center / cover no-repeat !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+body.ctc-neon-bg #ctcV5App .ctc-v5-shell {
+  z-index: 1 !important;
+  background: transparent !important;
+}
+/* Old independent arena art and gradient layers on app headers are removed. */
+body.ctc-neon-bg .ctc-v5-hero,
+body.ctc-neon-bg .ctc-v5-screenhero,
+body.ctc-neon-bg .ctc-admin-hero,
+body.ctc-neon-bg .portal-shell .hero {
+  background: transparent !important;
+  background-image: none !important;
+}
+@media (max-width: 760px) {
+  body.ctc-neon-bg::before {
+    background-image: url('../assets/design/ctc-neon-mobile-v529.webp') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+  body.ctc-neon-bg #ctcV5App::before {
+    background-image: url('../assets/design/ctc-neon-mobile-v529.webp') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+}
+/* Login-specific old photo layers had hidden the new neon wallpaper. */
+body.ctc-neon-bg #authCard.auth > .ctc-approved-art,
+body.ctc-neon-bg #authCard.auth > img.ctc-approved-art {
+  display: none !important;
+}
+body.ctc-neon-bg #authCard.auth {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+body.ctc-neon-bg #authCard.auth > .ctc-auth-content {
+  margin: 0 !important;
+  background: rgba(5,15,30,.87) !important;
+  backdrop-filter: none !important;
+}
+body.ctc-neon-bg .ctc-admin-login-art {
+  background: transparent !important;
+  background-image: none !important;
+}
+body.ctc-neon-bg .ctc-admin-login-card {
+  background: rgba(7,20,36,.82) !important;
+}
+body.ctc-neon-bg .ctc-login-chooser-main {
+  background: rgba(2,9,20,.65) !important;
+  backdrop-filter: none !important;
+}

@@ -1,0 +1,58 @@
+/* CTC 5.27 plane mural hero: existing city and logo art, no full-page dimming. */
+body.ctc-plane-page::before {
+  background-image: url('../assets/design/ctc-planes-cities-v527.webp') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-color: #020b18 !important;
+  width: 100% !important;
+  height: 100dvh !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+body.ctc-plane-page::after { content: none !important; display: none !important; }
+body.ctc-plane-page .ctc-plane-home-hero {
+  background: transparent !important;
+  min-height: 100svh !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: flex-end !important;
+  padding: 8rem clamp(20px,5vw,75px) 5rem !important;
+}
+body.ctc-plane-page .ctc-plane-home-hero .hero-copy {
+  width: min(560px, 47vw) !important;
+  max-width: none !important;
+  margin: 0 0 0 auto !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+body.ctc-plane-page .ctc-plane-home-hero h1 {font-size:clamp(2.2rem,4.4vw,5.5rem);line-height:1.02!important;}
+body.ctc-plane-page .ctc-plane-home-hero [data-home-line2] {color:#f4c45f;}
+body.ctc-plane-page .ctc-plane-home-hero .hero-actions {justify-content:flex-start!important;}
+body.ctc-plane-page .hero-stats {grid-template-columns:repeat(3,minmax(0,1fr));}
+body.ctc-plane-page .hero-stats>div:nth-child(2){border-right:1px solid rgba(243,197,65,.18);}
+@media(max-width:760px) {
+  body.ctc-plane-page::before {
+    background-size:auto 100% !important;
+    background-position: 42% center !important;
+  }
+  body.ctc-plane-page .ctc-plane-home-hero {
+    padding: 7rem 1.35rem 2.8rem !important;
+    align-items:flex-end!important;
+    justify-content:flex-start!important;
+  }
+  body.ctc-plane-page .ctc-plane-home-hero .hero-copy {
+    width:100% !important;
+    margin:0!important;
+    text-align:left!important;
+    background: rgba(1,8,20,.74)!important;
+    border:1px solid rgba(234,192,83,.25)!important;
+    border-radius:20px!important;
+    padding:18px!important;
+    box-shadow:0 12px 38px rgba(0,0,0,.22)!important;
+  }
+  body.ctc-plane-page .ctc-plane-home-hero h1 {font-size:clamp(2.0rem,9vw,3.7rem)!important;}
+  body.ctc-plane-page .ctc-plane-home-hero .hero-actions {display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important;}
+  body.ctc-plane-page .ctc-plane-home-hero .hero-actions .button {font-size:.70rem;min-width:0;padding:12px 6px;}
+  body.ctc-plane-page .hero-stats {margin-top:0;}
+  body.ctc-plane-page .hero-stats>div:nth-child(-n+2){border-bottom:0;}
+}

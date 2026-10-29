@@ -2,7 +2,7 @@
   "id": "/",
   "name": "CTC \u2014 Couch To Cage",
   "short_name": "CTC",
-  "description": "Couch To Cage fighter opportunities, upcoming fights and private fighter portal.",
+  "description": "Couch To Cage fighter opportunities, upcoming fights and the unified CTC Operations HQ.",
   "start_url": "/?source=ctc-app",
   "scope": "/",
   "display": "standalone",

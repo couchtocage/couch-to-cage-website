@@ -86,7 +86,7 @@ function fighterSide(fighter, weight, discipline, opponent=false) {
   const location=[fighter.city,fighter.state].filter(Boolean).join(', ');
   const gym=publicGym(fighter.gym);
   const pro=/(?:^|\b)pro(?:fessional)?(?:$|\b)/i.test(fighter.fighterLevel||'') || (!fighter.fighterLevel && fighter.proRecord && fighter.proRecord!=='0-0-0');
-  const records=pro?(fighter.proRecord?`PRO ${fighter.proRecord}`:''):(fighter.amateurRecord?`AM ${fighter.amateurRecord}`:'');
+  const records=fighter.disciplineRecord?`${pro?'PRO':'AM'} ${fighter.disciplineRecord}`:pro?(fighter.proRecord?`PRO ${fighter.proRecord}`:''):(fighter.amateurRecord?`AM ${fighter.amateurRecord}`:'');
   const shownRecord=records||(fighter.record||'');
   return `<div class="ctc-card-side${opponent?' ctc-card-opponent':''}">
     ${fighterPortrait(fighter.headshot,`${fighter.name} headshot`)}
@@ -194,6 +194,7 @@ async function loadEvents() {
           const rows=grouped.get(String(matchup.parentEventId));
           const position=rows.findIndex(row=>parseMatchupNotes(row.notes).matchupId===String(matchup.id));
           if(position>=0)rows[position]=matchup;
+          else if(!rows.some(row=>String(row.id)===String(matchup.id)))rows.push(matchup);
         }
       }
     }

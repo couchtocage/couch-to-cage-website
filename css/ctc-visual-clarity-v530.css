@@ -1,0 +1,173 @@
+/* CTC 5.30 — unified sharp neon backgrounds, no blur, and smooth messages.
+   Includes iOS safari: a fixed element instead of background-attachment:fixed.
+   Loaded LAST to override legacy app/login CSS; auth and backend JS unchanged. */
+html { background-color:#020914 !important; }
+body.ctc-neon-bg,
+body.ctc-neon-bg:has(#loginPanel:not([hidden])),
+body.ctc-neon-bg:has(#auth:not(.hidden)),
+body.ctc-neon-bg:has(#authCard:not(.hidden)) {
+  background:transparent!important;
+  background-image:none!important;
+  background-color:transparent!important;
+  isolation:isolate!important;
+}
+/* Old login stylesheet explicitly removed ALL body pseudo-elements. Restore the
+   wallpaper with greater specificity than its :has(#loginPanel) rule. */
+body.ctc-neon-bg::before,
+body.ctc-neon-bg:has(#loginPanel:not([hidden]))::before,
+body.ctc-neon-bg:has(#auth:not(.hidden))::before,
+body.ctc-neon-bg:has(#authCard:not(.hidden))::before,
+body.ctc-neon-bg:has(#authCard:not([hidden]))::before {
+  content:""!important;
+  display:block!important;
+  position:fixed!important;
+  inset:0!important;
+  width:100%!important;
+  height:100dvh!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  opacity:1!important;
+  transform:none!important;
+  filter:none!important;
+  background: #020914 url('../assets/design/ctc-neon-street-v527.webp') center center / cover no-repeat!important;
+}
+body.ctc-neon-bg::after,
+body.ctc-neon-bg:has(#loginPanel:not([hidden]))::after,
+body.ctc-neon-bg:has(#auth:not(.hidden))::after,
+body.ctc-neon-bg:has(#authCard:not(.hidden))::after {
+  display:none!important;content:none!important;
+}
+@media(max-width:760px) {
+  body.ctc-neon-bg::before,
+  body.ctc-neon-bg:has(#loginPanel:not([hidden]))::before,
+  body.ctc-neon-bg:has(#auth:not(.hidden))::before,
+  body.ctc-neon-bg:has(#authCard:not(.hidden))::before,
+  body.ctc-neon-bg:has(#authCard:not([hidden]))::before {
+    background-image:url('../assets/design/ctc-neon-crisp-mobile-v530.webp')!important;
+    background-size:cover!important;
+    background-position:center!important;
+  }
+}
+/* Remove every frosted glass/blur filter on the requested login, registration,
+   and portal routes while keeping opaque form/chat surfaces for readability. */
+body.ctc-neon-bg *,body.ctc-neon-bg *::before,body.ctc-neon-bg *::after,
+body.ctc-neon-bg::before,body.ctc-neon-bg::after {
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+/* All main shells sit ABOVE the wallpaper, while the wallpaper remains pinned. */
+body.ctc-neon-bg > :is(main,.wrap,.page,.admin-main,.ctc-admin-shell,.ctc-admin-login) {
+  position:relative;z-index:1;
+}
+body.ctc-neon-bg > .site-header,body.ctc-neon-bg > .admin-header {z-index:10000;}
+body.ctc-neon-bg > :is(main,.wrap,.page,.admin-main,.ctc-admin-shell,.ctc-admin-login) {
+  background-color:transparent!important;
+  background-image:none!important;
+}
+body.ctc-neon-bg :is(.ctc-admin-shell,.ctc-admin-view,.ctc-admin-screen,.portal-shell,.wrap,.page) {
+  background-color:transparent!important;
+  background-image:none!important;
+}
+/* The chooser sits below its fixed 92px mobile header. Earlier padding reset
+   from an inline rule covered the top CTC logo behind the header. */
+body.ctc-login-chooser .ctc-login-chooser-main {
+  box-sizing:border-box!important;
+  min-height:100svh!important;
+  background:rgba(2,9,20,.18)!important;
+  background-image:none!important;
+  overflow:visible!important;
+  backdrop-filter:none!important;
+}
+@media(max-width:760px) {
+  body.ctc-login-chooser .ctc-login-chooser-main {
+    padding:calc(92px + max(24px,env(safe-area-inset-top))) 18px 40px!important;
+    border-radius:0!important;
+  }
+  body.ctc-login-chooser .ctc-login-chooser-mark {
+    display:block!important;
+    width:min(190px,49vw)!important;
+    height:110px!important;
+    margin:0 auto 14px!important;
+    object-fit:contain!important;
+  }
+}
+@media(min-width:761px) {
+  body.ctc-login-chooser .ctc-login-chooser-main {padding-top:150px!important;}
+}
+/* Executive signed-in app owns a separate fixed shell. Background is sharp and
+   stable even when scrolling long Messages, Fighters, and Fights screens. */
+body.ctc-neon-bg #ctcV5App,body.ctc-neon-bg #ctcV5App .ctc-v5-shell {
+  background:transparent!important;background-image:none!important;
+}
+body.ctc-neon-bg #ctcV5App::before {
+  content:""!important;display:block!important;
+  position:fixed!important;inset:0!important;z-index:0!important;
+  pointer-events:none!important;opacity:1!important;filter:none!important;
+  background:#020914 url('../assets/design/ctc-neon-street-v527.webp') center/cover no-repeat!important;
+}
+@media(max-width:760px) {
+  body.ctc-neon-bg #ctcV5App::before {background-image:url('../assets/design/ctc-neon-crisp-mobile-v530.webp')!important;}
+}
+/* Transparent modules never overwrite the background with old arenas.
+   Header/form/message cards keep legible SOLID navy surfaces, no blur. */
+body.ctc-neon-bg .role-fr #roleHero,
+body.ctc-neon-bg #roleHero,
+body.ctc-neon-bg #dashboard>.dash-head.ctc-fighter-app-header,
+body.ctc-neon-bg .ctc-v5-hero,
+body.ctc-neon-bg .ctc-v5-screenhero {
+  background-image:none!important;
+  background-color:rgba(3,13,25,.22)!important;
+}
+body.ctc-neon-bg #ctcAdminChatScreen {
+  background-image:none!important;
+  background:rgba(4,12,24,.40)!important;
+}
+body.ctc-neon-bg .ctc-admin-login-art {background:transparent!important;background-image:none!important;}
+body.ctc-neon-bg #loginPanel.login-panel {background:rgba(4,14,27,.94)!important;}
+body.ctc-neon-bg #authCard.auth>.ctc-auth-content,
+body.ctc-neon-bg .ctc-admin-login-card {background:rgba(5,15,29,.95)!important;}
+body.ctc-neon-bg .ctc-login-chooser-actions a:not(:first-child) {background:rgba(4,17,33,.96)!important;}
+/* Executive Messages: compact tappable cards and subtle transitions, never blur
+   or glass effects. No change to database, sender, receipts, or permissions. */
+body.ctc-app-executive .ctc-message-inbox-screen {max-width:760px;margin-inline:auto!important;}
+body.ctc-app-executive .ctc-thread {
+  min-height:76px!important;
+  padding:10px 12px!important;
+  margin:0 0 8px!important;
+  border:1px solid rgba(164,177,193,.25)!important;
+  border-radius:17px!important;
+  background:rgba(5,17,33,.96)!important;
+  -webkit-tap-highlight-color:transparent;
+  transition:transform .16s ease,border-color .16s ease,background-color .16s ease!important;
+  touch-action:manipulation;
+}
+body.ctc-app-executive .ctc-thread:last-child {border-bottom:1px solid rgba(164,177,193,.25)!important;}
+body.ctc-app-executive .ctc-thread:active {transform:scale(.992)!important;background:rgba(14,36,62,.97)!important;}
+body.ctc-app-executive .ctc-thread:focus-visible {outline:2px solid #efc45d!important;outline-offset:2px!important;}
+body.ctc-app-executive .ctc-thread-main strong {font-size:.96rem!important;}
+body.ctc-app-executive .ctc-thread-main small {font-size:.79rem!important;}
+body.ctc-app-executive .ctc-chat-head {background:rgba(3,12,23,.98)!important;}
+body.ctc-app-executive #ctcAdminConversation {
+  background:transparent!important;
+  scroll-padding-bottom:18px!important;
+  overscroll-behavior:contain!important;
+  -webkit-overflow-scrolling:touch!important;
+}
+body.ctc-app-executive .ctc-message-row .ctc-bubble {
+  overflow-wrap:anywhere!important;
+  transition:opacity .16s ease,transform .16s ease;
+}
+body.ctc-app-executive #ctcAdminMessageText,
+body.ctc-app-executive #ctcThreadSearch,
+body.ctc-app-executive #ctcFighterPickerSearch {font-size:16px!important;}
+body.ctc-app-executive .ctc-message-compose-btn,
+body.ctc-app-executive .ctc-chat-back {touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+@media(prefers-reduced-motion:reduce){
+  body.ctc-app-executive .ctc-thread,
+  body.ctc-app-executive .ctc-message-row .ctc-bubble {transition:none!important;}
+}
+
+/* CTC 5.31: legacy Executive inbox outgoing states. */
+.ctc-v531-legacy-outgoing.is-sending .ctc-bubble{opacity:.85}
+.ctc-v531-legacy-outgoing.is-failed .ctc-bubble{outline:1px solid #e38b82;background:#4b3038}
+.ctc-v531-legacy-outgoing.is-failed .ctc-v531-status{color:#ffb6b6}
